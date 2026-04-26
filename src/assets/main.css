@@ -1,0 +1,43 @@
+/* ── Reset ────────────────────────────────────────── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ── Design tokens ────────────────────────────────── */
+:root {
+  --bg:       #0a0808;
+  --surface:  #111010;
+  --red:      #6a0000;
+  --red-dark: #3d0000;
+  --red-mid:  #8b0000;
+  --gold:     #c9a84c;
+  --gold-lo:  rgba(201,168,76,0.12);
+  --cream:    #e8e3de;
+  --muted:    #5a5452;
+  --dim:      #2a2725;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--cream);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+::selection { background: var(--red-mid); color: #fff; }
+::-webkit-scrollbar { width: 2px; }
+::-webkit-scrollbar-thumb { background: rgba(201,168,76,0.18); }
+
+/* ── Scroll reveal ────────────────────────────────── */
+.sr {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity  .95s cubic-bezier(.25,.46,.45,.94),
+    transform .95s cubic-bezier(.25,.46,.45,.94);
+}
+.sr.in { opacity: 1; transform: translateY(0); }
+.sr-d1 { transition-delay: .10s; }
+.sr-d2 { transition-delay: .22s; }
+.sr-d3 { transition-delay: .36s; }
+.sr-d4 { transition-delay: .50s; }

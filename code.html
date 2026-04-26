@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600;6..72,700&amp;family=Inter:wght@400;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>@font-face {
+    font-family: "Vintage Calligraphic";
+    src: url(https://fonts.cdnfonts.com/css/signature-font-3);
+    /* Fallback for calligraphic style */
+    }
+body {
+    background-color: #080808;
+    color: #e5e2e1;
+    overflow-x: hidden
+    }
+.film-grain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.05;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuCCZVtoH2s9Cs88HHNNiQ0_nfRsB4eWALL6i3y_NB3yYepl62GEAYxxvAEsVMBDeZyoqvYI8Lv28Ib2vqYVv7manDB_j4Yzy_4pTAp1yM_qPjYkDQZeEDvpeY-R4lxef8rTu-ckcw2_vd0Mq58e1lIiIjmv_RRlVx-I7mX7WnGZK4HLHnVdNaoGIolRGPyoxAlbFQqKYRPLulB1XLu6tnyQmD6t-AaaotppZzy_kIFvyxKQSmWzSN3Sc2Gk8B0oLFAhC86w_3pxhem8)
+    }
+.light-leak {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(45deg, rgba(255, 184, 0, 0.05) 0%, transparent 40%, rgba(139, 0, 0, 0.05) 100%);
+    z-index: 10
+    }
+.scrim-overlay {
+    background: linear-gradient(to top, rgba(8, 8, 8, 1) 0%, rgba(8, 8, 8, 0.4) 40%, transparent 100%)
+    }
+.letter-spacing-extreme {
+    letter-spacing: 0.4em
+    }
+.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24
+    }</style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#ffdad6",
+                        "secondary-container": "#ffbf00",
+                        "secondary": "#ffe2ab",
+                        "surface-container": "#201f1f",
+                        "on-background": "#e5e2e1",
+                        "primary-fixed": "#ffdad4",
+                        "on-primary-fixed": "#410000",
+                        "tertiary-container": "#cca730",
+                        "on-primary": "#690000",
+                        "surface-container-high": "#2a2a2a",
+                        "tertiary": "#e9c349",
+                        "error": "#ffb4ab",
+                        "outline": "#aa8984",
+                        "on-secondary-fixed-variant": "#5c4300",
+                        "on-tertiary-fixed": "#241a00",
+                        "primary": "#ffb4a8",
+                        "surface": "#131313",
+                        "surface-tint": "#ffb4a8",
+                        "outline-variant": "#5a403c",
+                        "on-secondary": "#402d00",
+                        "tertiary-fixed-dim": "#e9c349",
+                        "tertiary-fixed": "#ffe088",
+                        "on-primary-container": "#ff907f",
+                        "background": "#131313",
+                        "on-tertiary": "#3c2f00",
+                        "secondary-fixed": "#ffdfa0",
+                        "on-primary-fixed-variant": "#920703",
+                        "on-secondary-container": "#6d5000",
+                        "surface-dim": "#131313",
+                        "surface-container-highest": "#353534",
+                        "surface-variant": "#353534",
+                        "surface-container-lowest": "#0e0e0e",
+                        "secondary-fixed-dim": "#fbbc00",
+                        "on-error": "#690005",
+                        "surface-container-low": "#1c1b1b",
+                        "inverse-primary": "#b52619",
+                        "primary-container": "#8b0000",
+                        "primary-fixed-dim": "#ffb4a8",
+                        "error-container": "#93000a",
+                        "on-surface": "#e5e2e1",
+                        "on-tertiary-fixed-variant": "#574500",
+                        "on-surface-variant": "#e3beb8",
+                        "inverse-surface": "#e5e2e1",
+                        "on-tertiary-container": "#4f3e00",
+                        "surface-bright": "#3a3939",
+                        "on-secondary-fixed": "#261a00",
+                        "inverse-on-surface": "#313030"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "column-count": "12",
+                        "stack-md": "32px",
+                        "gutter": "32px",
+                        "margin-edge": "64px",
+                        "stack-lg": "80px",
+                        "unit": "8px",
+                        "stack-sm": "16px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Newsreader"],
+                        "label-caps": ["Inter"],
+                        "display-script": ["Newsreader"], /* Using Newsreader italic as proxy for vintage script */
+                        "body-md": ["Inter"],
+                        "headline-xl": ["Newsreader"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "display-script": ["120px", {"lineHeight": "1", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-xl": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="font-body-md bg-background selection:bg-primary-container selection:text-white">
+<div class="film-grain"></div>
+<!-- Navigation Shell: TopAppBar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-16 py-8 bg-[#080808]/90 backdrop-blur-md border-b border-yellow-600/20">
+<div class="text-xl font-light tracking-[0.4em] text-stone-200">MONOGRAPH</div>
+<div class="hidden md:flex items-center space-x-12">
+<a class="text-yellow-500 tracking-[0.3em] font-semibold border-b border-yellow-600 font-serif uppercase text-xs" href="#">ARCHIVE</a>
+<a class="text-stone-500 tracking-[0.2em] hover:text-stone-300 transition-colors font-serif uppercase text-xs" href="#">SCENES</a>
+<a class="text-stone-500 tracking-[0.2em] hover:text-stone-300 transition-colors font-serif uppercase text-xs" href="#">JOURNAL</a>
+</div>
+<button class="font-serif tracking-[0.2em] uppercase text-xs text-red-900 dark:text-red-800 hover:text-yellow-500 transition-all duration-500">
+            CONTACT
+        </button>
+</nav>
+<!-- Side Navigation Shell -->
+<aside class="fixed left-0 top-0 h-full w-20 flex flex-col items-center py-12 z-40 bg-[#080808] border-r border-yellow-600/10">
+<div class="mb-12">
+<span class="text-lg font-bold tracking-tighter text-red-900 block rotate-180 [writing-mode:vertical-lr]">SESSION</span>
+</div>
+<div class="flex flex-col space-y-12 items-center flex-grow">
+<div class="group cursor-pointer text-yellow-600 scale-110 drop-shadow-[0_0_8px_rgba(212,175,55,0.4)]">
+<span class="material-symbols-outlined" data-icon="door_front">door_front</span>
+</div>
+<div class="group cursor-pointer text-stone-700 hover:text-stone-400">
+<span class="material-symbols-outlined" data-icon="album">album</span>
+</div>
+<div class="group cursor-pointer text-stone-700 hover:text-stone-400">
+<span class="material-symbols-outlined" data-icon="nightlife">nightlife</span>
+</div>
+<div class="group cursor-pointer text-stone-700 hover:text-stone-400">
+<span class="material-symbols-outlined" data-icon="theater_comedy">theater_comedy</span>
+</div>
+</div>
+<div class="mt-auto space-y-8 flex flex-col items-center opacity-30">
+<span class="font-sans tracking-widest uppercase text-[10px] [writing-mode:vertical-lr]">LEGAL</span>
+<span class="font-sans tracking-widest uppercase text-[10px] [writing-mode:vertical-lr]">CREDITS</span>
+</div>
+</aside>
+<main class="ml-20">
+<!-- Hero Section -->
+<section class="relative h-screen w-full flex items-center justify-center overflow-hidden bg-surface-container-lowest">
+<div class="light-leak"></div>
+<div class="absolute inset-0 z-0 overflow-hidden">
+<img class="w-full h-full object-cover opacity-40 blur-[2px] scale-110" data-alt="cinematic wide shot of a smoky jazz club interior from the 1960s with hazy spotlight beams and vintage microphones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrJvt-EA78KreGjpzKQbvbrT_ljljO-AxZZpzilL-8pG4GVIcZz7xfjfuiQrM5vZPNnjbAkp9fNgdID_FFpt95OPAOkMUxD1_348eD4jUfdFiFNdc1WAlv4P5_f2oHZZ5YfOPYda2Fcy8xmvKCiabI__IljoPyAscm8gW6Hw2oXzmJH0b3H4Y2kkMNh4sN1M6me0f4DoX0_Ng_kosCkTu2d1TgeDZocpes5DYRf7Viqulf1PvAli7EvH3UsyQbjlVnvjIoGWzbs6DY"/>
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#080808]/40 to-[#080808]"></div>
+</div>
+<div class="relative z-20 text-center px-margin-edge">
+<h1 class="font-display-script text-[120px] md:text-[180px] text-on-surface italic tracking-tight leading-none drop-shadow-2xl">
+                    Monograph
+                </h1>
+<p class="font-label-caps text-secondary tracking-[0.6em] mt-8 opacity-60">
+                    A NOCTURNE EDITION © 1964
+                </p>
+<div class="mt-stack-lg flex justify-center">
+<div class="w-px h-24 bg-gradient-to-b from-yellow-600/60 to-transparent"></div>
+</div>
+</div>
+</section>
+<!-- Jazz Narrative Grid -->
+<section class="px-margin-edge py-stack-lg bg-surface">
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Scene 1: Entrance -->
+<div class="col-span-12 md:col-span-7 mb-stack-lg">
+<div class="relative group overflow-hidden border border-yellow-600/10 h-[600px]">
+<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="a dark rainy alleyway at night with a glowing red neon jazz club sign reflected in puddles" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrfgJCaw9Pi85M1sFydrb0ezClrp36Eg27YBL_xK9gEYnZ2U_v4_Mk6usBk_3usjQKoqbK4RnkyrU4DVMhUV0aBXZ1KmpPUBM_X8h6VQZIGaZgHTaFxRTQuDalwkSuHsaWbVH1Q62ZpJ7Gy8ozZjf05I17d-9VX2DLAJbz15wcANJDHmkQ-MKk_t0fQbdnayxEcdIWBFbhEog3cd4PYwkRr9dj5hNG9dq78ra2s3VXlck0S2MWHov5R1eFvhAxLeCL6zbaxgUMWhHM"/>
+<div class="scrim-overlay absolute inset-0 flex flex-col justify-end p-stack-md">
+<span class="text-primary font-label-caps mb-2">SCENE I</span>
+<h2 class="font-headline-xl text-on-surface leading-none uppercase">Jazz Club Entrance</h2>
+<p class="font-body-md text-stone-400 mt-4 max-w-md opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                                The hum of the city fades. Wet pavement catches the flickering neon. A transition from the mundane to the melodic.
+                            </p>
+</div>
+</div>
+</div>
+<!-- Scene 2: Record Store -->
+<div class="col-span-12 md:col-span-5 mt-stack-md">
+<div class="relative group overflow-hidden border border-yellow-600/10 h-[450px]">
+<img class="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 transition-all duration-1000" data-alt="warm amber lit shelves of vintage vinyl records with soft focus dust motes dancing in the light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAq4-JnBmRHfF4cgCj2uDmRKlprb3RPJnKJQd9G0LJxDYkt92DiBvAoi2YG226_RhP5LQpf-EK7taF5Vc21LiD13kGRs7x4l1BK8exnB1zoZQOwaN19KnJ_b1vVv0qh5jPLZQ8bvYPOYU5PuGOlD3LP7ODwjLWfyDpebB4ma0MDQxeja2hdwEsVpNCytl-RbhBr_2iIxV2RFY45-JM_2luhs6_MHs_m92nfTHYGVETHN_UcLD97rMcuha0NuPiRiObJOPmclVuaRK3s"/>
+<div class="scrim-overlay absolute inset-0 flex flex-col justify-end p-stack-md">
+<span class="text-tertiary font-label-caps mb-2">SCENE II</span>
+<h2 class="font-headline-lg text-on-surface uppercase leading-tight">Vintage Record Store</h2>
+</div>
+</div>
+</div>
+<!-- Project Divider -->
+<div class="col-span-12 py-12 flex justify-center">
+<div class="w-1/2 h-px bg-yellow-600/10"></div>
+</div>
+<!-- Scene 3: Inside Club -->
+<div class="col-span-12 md:col-span-5 mb-stack-lg">
+<div class="relative group overflow-hidden border border-yellow-600/10 h-[500px]">
+<img class="w-full h-full object-cover saturate-[0.8] brightness-50 group-hover:brightness-75 transition-all duration-1000" data-alt="intimate dark interior of a club with deep red lighting, small circular tables, and silhouettes of patrons" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4jTeiG0qJrBoynXh7NgjUcjdYrJVwNAd6iBWOYw1rKH4Yl3JRDbnpcqYuSqFtNmj5rPUDLyUvnkKuu4FEdXaTDsKg1AWBH_krA4poHiNtnkD_6ahUD9kdu-F4Es2L1_aVFXSELg7HWdh2yfPrKS6tZg8JaOOU8Qe87bEHkBNmT4pI1aR_CRfSvHELj5XqkWBQN9u229T-9arTy9ZlUa9Qj-6215jZYyzyVxV4990MOyRBvZ5MhxLXVPIACADTkigWhQXJvQN-Y6KV"/>
+<div class="scrim-overlay absolute inset-0 flex flex-col justify-end p-stack-md text-right items-end">
+<span class="text-primary-container font-label-caps mb-2">SCENE III</span>
+<h2 class="font-headline-lg text-on-surface uppercase leading-tight">Inside Jazz Club</h2>
+</div>
+</div>
+</div>
+<!-- Scene 4: Live Performance -->
+<div class="col-span-12 md:col-span-7 mt-stack-lg">
+<div class="relative group overflow-hidden border border-yellow-600/10 h-[700px]">
+<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" data-alt="high contrast black and white photo of a jazz saxophonist in a sharp spotlight with smoke rising" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMs81jmbdEmftyMih5WhkugTZeFLI3HjKi6QBpVhtZffeMUXBKpupbmWfq_d2orhjsCym0kH4YbN_6jCwLgXqHzPQ86wQ-B8U6gRjypBR4B8Xu0mcWtOw4PZVyKoHwO4Gomjmk_4_YCd7jAZ5gPECjK33fqg5aMPNGzHJIT7M4qAtb7umWsQQ4cuwROTNGFP9qw5ku68tpub5pu0Bdx3kyjhnBdSP49FKlelE9KKYVy8vnv7xOGS1uEnif5U97rfwLYgNYkj8VM_a0"/>
+<div class="scrim-overlay absolute inset-0 flex flex-col justify-end p-stack-md">
+<span class="text-secondary font-label-caps mb-2">SCENE IV</span>
+<h2 class="font-headline-xl text-on-surface leading-none uppercase">Live Performance</h2>
+<div class="mt-6 flex space-x-4 opacity-0 group-hover:opacity-100 transition-all duration-500">
+<button class="px-6 py-2 border border-yellow-600/30 font-label-caps text-on-surface hover:bg-yellow-600/10 transition-colors uppercase">View Film</button>
+<button class="px-6 py-2 border border-red-900/30 font-label-caps text-on-surface hover:bg-red-900/10 transition-colors uppercase">Details</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Quote Section -->
+<section class="py-stack-lg flex flex-col items-center justify-center text-center bg-[#080808]">
+<div class="max-w-3xl px-stack-md">
+<span class="material-symbols-outlined text-yellow-600 text-4xl mb-8" data-icon="format_quote">format_quote</span>
+<blockquote class="font-headline-lg italic text-stone-300 leading-relaxed mb-8">
+                    "Jazz is not just music, it's a way of life, it's a way of being, a way of thinking."
+                </blockquote>
+<cite class="font-label-caps text-stone-500 uppercase tracking-widest">— Nina Simone</cite>
+</div>
+</section>
+<!-- Footer Shell -->
+<footer class="w-full flex flex-col md:flex-row justify-between items-center bg-[#080808] border-t border-yellow-600/10 px-16 py-20 opacity-60 mt-stack-lg">
+<div class="mb-8 md:mb-0">
+<div class="text-stone-400 font-bold font-mono text-[9px] tracking-[0.3em] uppercase">MONOGRAPH EDITIONS</div>
+<p class="font-mono text-[9px] tracking-[0.3em] uppercase text-stone-600 mt-2">
+                    © 1964 NOCTURNE EDITIONS. ALL RIGHTS RESERVED.
+                </p>
+</div>
+<div class="flex space-x-12">
+<a class="font-mono text-[9px] tracking-[0.3em] uppercase text-stone-600 hover:text-red-800 transition-colors" href="#">PRIVACY</a>
+<a class="font-mono text-[9px] tracking-[0.3em] uppercase text-stone-600 hover:text-red-800 transition-colors" href="#">TERMS</a>
+<a class="font-mono text-[9px] tracking-[0.3em] uppercase text-stone-200 hover:text-red-800 transition-colors" href="#">ARCHIVE</a>
+</div>
+<div class="mt-8 md:mt-0 flex space-x-4">
+<span class="material-symbols-outlined text-stone-600 hover:text-yellow-600 cursor-pointer" data-icon="share">share</span>
+<span class="material-symbols-outlined text-stone-600 hover:text-yellow-600 cursor-pointer" data-icon="favorite">favorite</span>
+</div>
+</footer>
+</main>
+</body></html>
