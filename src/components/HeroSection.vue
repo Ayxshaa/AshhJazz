@@ -236,6 +236,53 @@ function scrollToScenes() {
   color: rgba(201,168,76,.3);
 }
 
+/* ── Mobile ───────────────────────────────────── */
+@media (max-width: 767px) {
+  .hero-vert { display: none; }
+
+  .hero-staff { padding: 0 24px; }
+
+  .hero-top { padding: 40px 24px 0; }
+
+  .hero-wordmark { white-space: normal; }
+
+  .hero-center {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    padding: 16px 24px;
+    gap: 12px 0;
+  }
+
+  .hero-video-frame {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    width: clamp(200px, 65vw, 280px);
+    justify-self: center;
+  }
+
+  .hero-name-left {
+    grid-column: 1;
+    grid-row: 2;
+    text-align: center;
+    padding-right: 0;
+  }
+
+  .hero-name-right {
+    grid-column: 2;
+    grid-row: 2;
+    text-align: center;
+    padding-left: 0;
+  }
+
+  .hero-bottom {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 24px 28px;
+    text-align: center;
+  }
+}
+
 /* ── Animations ───────────────────────────────── */
 @keyframes fade-up {
   from { opacity: 0; transform: translateY(30px); }

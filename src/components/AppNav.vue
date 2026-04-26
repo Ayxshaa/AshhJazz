@@ -69,4 +69,15 @@ defineProps({
   transition: color .3s;
 }
 .nav-cta:hover { color: var(--gold); }
+
+@media (max-width: 600px) {
+  .nav {
+    padding: 16px 20px;
+  }
+
+  .nav-links,
+  .nav-cta {
+    display: none;
+  }
+}
 </style>

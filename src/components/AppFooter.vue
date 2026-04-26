@@ -39,11 +39,25 @@ footer {
   transition: color .3s;
 }
 .foot-links a:hover { color: var(--red-mid); }
-.foot-links a.dim   { color: #3a3634; }
+.foot-links a.dim { color: #3a3634; }
 .foot-copy {
   font-size: 7px;
   letter-spacing: .35em;
   text-transform: uppercase;
   color: #1e1c1b;
+}
+
+@media (max-width: 600px) {
+  footer {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 40px 24px;
+    text-align: center;
+  }
+
+  .foot-links {
+    gap: 24px;
+  }
 }
 </style>

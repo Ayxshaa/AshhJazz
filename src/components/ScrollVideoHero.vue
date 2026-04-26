@@ -553,4 +553,15 @@ const visibleLayers = computed(() => {
   0%, 100% { opacity: .6; transform: scaleY(1);   }
   50%       { opacity: .2; transform: scaleY(.6); }
 }
+
+@media (max-width: 600px) {
+  .layer-q {
+    max-width: calc(100vw - 88px);
+  }
+
+  .svh__layer--bottom-center {
+    white-space: normal;
+    width: 80vw;
+  }
+}
 </style>
